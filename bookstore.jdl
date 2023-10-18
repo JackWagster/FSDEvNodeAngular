@@ -1,0 +1,41 @@
+// an ignored comment
+/** not an ignored comment */
+entity BookStore {
+	bookStoreName String,
+	postalCode String,
+	city String,
+	stateProvince String
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity Book {
+	title String required,
+	description String
+}
+
+entity Author {
+	fistName String required,
+    lastName String required,
+}
+
+
+relationship ManyToMany {
+	Book{author(lastName)} to Author{book}
+    BookStore{book(title)} to Book{bookStore(bookStoreName)}
+
+}
+
+// Set pagination options
+paginate BookStore with infinite-scroll
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

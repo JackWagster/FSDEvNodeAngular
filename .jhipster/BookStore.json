@@ -1,0 +1,42 @@
+{
+  "name": "BookStore",
+  "fields": [
+    {
+      "fieldName": "bookStoreName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "postalCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stateProvince",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "book",
+      "otherEntityRelationshipName": "bookStore",
+      "relationshipName": "book",
+      "otherEntityField": "title",
+      "ownerSide": true
+    }
+  ],
+  "javadoc": "not an ignored comment",
+  "entityTableName": "book_store",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20231018184202"
+}

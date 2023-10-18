@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="bookStore">
+      <h2 data-cy="bookStoreDetailsHeading"><span>Book Store</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ bookStore.id }}</span>
+        </dd>
+        <dt><span>Book Store Name</span></dt>
+        <dd>
+          <span>{{ bookStore.bookStoreName }}</span>
+        </dd>
+        <dt><span>Postal Code</span></dt>
+        <dd>
+          <span>{{ bookStore.postalCode }}</span>
+        </dd>
+        <dt><span>City</span></dt>
+        <dd>
+          <span>{{ bookStore.city }}</span>
+        </dd>
+        <dt><span>State Province</span></dt>
+        <dd>
+          <span>{{ bookStore.stateProvince }}</span>
+        </dd>
+        <dt><span>Book</span></dt>
+        <dd>
+          <span *ngFor="let book of bookStore.books; let last = last">
+            <a [routerLink]="['/book', book?.id, 'view']">{{ book.title }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/book-store', bookStore.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

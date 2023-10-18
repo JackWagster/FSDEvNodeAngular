@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  fsdevnodeangular-app:
+    build: ../../..
+    container_name: fsdevnodeangular-app
+    environment:
+    ports:
+      - 8081:8081
