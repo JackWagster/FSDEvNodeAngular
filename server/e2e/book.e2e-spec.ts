@@ -41,7 +41,11 @@ describe('Book Controller', () => {
     });
 
     it('/GET all books ', async () => {
-        const getEntities: BookDTO[] = (await request(app.getHttpServer()).get('/api/books').expect(200)).body;
+        const getEntities: BookDTO[] = (
+            await request(app.getHttpServer())
+                .get('/api/books')
+                .expect(200)
+        ).body;
 
         expect(getEntities).toEqual(entityMock);
     });
@@ -58,7 +62,10 @@ describe('Book Controller', () => {
 
     it('/POST create books', async () => {
         const createdEntity: BookDTO = (
-            await request(app.getHttpServer()).post('/api/books').send(entityMock).expect(201)
+            await request(app.getHttpServer())
+                .post('/api/books')
+                .send(entityMock)
+                .expect(201)
         ).body;
 
         expect(createdEntity).toEqual(entityMock);
@@ -66,7 +73,10 @@ describe('Book Controller', () => {
 
     it('/PUT update books', async () => {
         const updatedEntity: BookDTO = (
-            await request(app.getHttpServer()).put('/api/books').send(entityMock).expect(201)
+            await request(app.getHttpServer())
+                .put('/api/books')
+                .send(entityMock)
+                .expect(201)
         ).body;
 
         expect(updatedEntity).toEqual(entityMock);

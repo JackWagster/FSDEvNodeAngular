@@ -9,9 +9,9 @@ export class BookMapper {
         if (!entityDTO) {
             return;
         }
-        let entity = new Book();
+        const entity = new Book();
         const fields = Object.getOwnPropertyNames(entityDTO);
-        fields.forEach((field) => {
+        fields.forEach(field => {
             entity[field] = entityDTO[field];
         });
         return entity;
@@ -21,11 +21,11 @@ export class BookMapper {
         if (!entity) {
             return;
         }
-        let entityDTO = new BookDTO();
+        const entityDTO = new BookDTO();
 
         const fields = Object.getOwnPropertyNames(entity);
 
-        fields.forEach((field) => {
+        fields.forEach(field => {
             entityDTO[field] = entity[field];
         });
 

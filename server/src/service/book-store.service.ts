@@ -30,7 +30,7 @@ export class BookStoreService {
         const resultList = await this.bookStoreRepository.findAndCount(options);
         const bookStoreDTO: BookStoreDTO[] = [];
         if (resultList && resultList[0]) {
-            resultList[0].forEach((bookStore) => bookStoreDTO.push(BookStoreMapper.fromEntityToDTO(bookStore)));
+            resultList[0].forEach(bookStore => bookStoreDTO.push(BookStoreMapper.fromEntityToDTO(bookStore)));
             resultList[0] = bookStoreDTO;
         }
         return resultList;

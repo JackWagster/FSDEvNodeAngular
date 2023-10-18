@@ -21,7 +21,7 @@ export class BookStore extends BaseEntity {
     @Column({ name: 'state_province', nullable: true })
     stateProvince: string;
 
-    @ManyToMany((type) => Book)
+    @ManyToMany(type => Book)
     @JoinTable({
         name: 'rel_book_store__book',
         joinColumn: { name: 'book_store_id', referencedColumnName: 'id' },

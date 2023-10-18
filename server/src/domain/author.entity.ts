@@ -15,7 +15,7 @@ export class Author extends BaseEntity {
     @Column({ name: 'last_name' })
     lastName: string;
 
-    @ManyToMany((type) => Book)
+    @ManyToMany(type => Book)
     books: Book[];
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

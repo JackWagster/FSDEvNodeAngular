@@ -29,7 +29,7 @@ export class AuthorService {
         const resultList = await this.authorRepository.findAndCount(options);
         const authorDTO: AuthorDTO[] = [];
         if (resultList && resultList[0]) {
-            resultList[0].forEach((author) => authorDTO.push(AuthorMapper.fromEntityToDTO(author)));
+            resultList[0].forEach(author => authorDTO.push(AuthorMapper.fromEntityToDTO(author)));
             resultList[0] = authorDTO;
         }
         return resultList;

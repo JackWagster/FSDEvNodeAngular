@@ -41,7 +41,11 @@ describe('Author Controller', () => {
     });
 
     it('/GET all authors ', async () => {
-        const getEntities: AuthorDTO[] = (await request(app.getHttpServer()).get('/api/authors').expect(200)).body;
+        const getEntities: AuthorDTO[] = (
+            await request(app.getHttpServer())
+                .get('/api/authors')
+                .expect(200)
+        ).body;
 
         expect(getEntities).toEqual(entityMock);
     });
@@ -58,7 +62,10 @@ describe('Author Controller', () => {
 
     it('/POST create authors', async () => {
         const createdEntity: AuthorDTO = (
-            await request(app.getHttpServer()).post('/api/authors').send(entityMock).expect(201)
+            await request(app.getHttpServer())
+                .post('/api/authors')
+                .send(entityMock)
+                .expect(201)
         ).body;
 
         expect(createdEntity).toEqual(entityMock);
@@ -66,7 +73,10 @@ describe('Author Controller', () => {
 
     it('/PUT update authors', async () => {
         const updatedEntity: AuthorDTO = (
-            await request(app.getHttpServer()).put('/api/authors').send(entityMock).expect(201)
+            await request(app.getHttpServer())
+                .put('/api/authors')
+                .send(entityMock)
+                .expect(201)
         ).body;
 
         expect(updatedEntity).toEqual(entityMock);

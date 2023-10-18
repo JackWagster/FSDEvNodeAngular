@@ -16,7 +16,7 @@ export class Book extends BaseEntity {
     @Column({ name: 'description', nullable: true })
     description: string;
 
-    @ManyToMany((type) => Author)
+    @ManyToMany(type => Author)
     @JoinTable({
         name: 'rel_book__author',
         joinColumn: { name: 'book_id', referencedColumnName: 'id' },
@@ -24,7 +24,7 @@ export class Book extends BaseEntity {
     })
     authors: Author[];
 
-    @ManyToMany((type) => BookStore)
+    @ManyToMany(type => BookStore)
     bookStores: BookStore[];
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
